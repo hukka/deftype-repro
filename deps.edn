@@ -1,14 +1,1 @@
-{:aliases
- {:dev {:jvm-opts ["-XX:-OmitStackTraceInFastThrow"]
-        :extra-deps {org.clojure/clojure {:mvn/version "1.10.3"}
-                     org.clojure/tools.deps.alpha {:mvn/version "0.12.1003"}
-                     org.slf4j/log4j-over-slf4j {:mvn/version "1.7.30"}
-                     ch.qos.logback/logback-classic {:mvn/version "1.2.3"}
-                     repro/component1 {:local/root "components/component1"}
-                     repro/base1 {:local/root "bases/base1"}
-                     }}
-  :poly {:main-opts ["-m" "polylith.clj.core.poly-cli.core"]
-         :extra-deps {polyfy/polylith
-                      {:git/url   "https://github.com/polyfy/polylith"
-                       :sha       "5f74c8b8675dbb091258165d327af3958716a247"
-                       :deps/root "projects/poly"}}}}}
+{:paths ["src"]}

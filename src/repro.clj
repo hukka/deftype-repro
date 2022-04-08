@@ -1,37 +1,25 @@
 (ns repro
-  (:require
-   [repro2]
-   [repro3]
-   [clojure.tools.logging :refer [info]]))
+  (:require [repro2]))
 
 (defn read []
-  (info "Called repro/read 1"))
+  (prn "Called repro/read 1"))
 
 (defn func-b
   "This version calls a function from another namespace
   that has its own deps.edn.
   This function has the bug."
   []
-  (info "Called func-b: 1")
+  (prn "Called func-b: 1")
   (repro2/read))
 
 (defn func-b2
  "This function calls a function in the same namespace and does not bug."
   []
-  (info "Called func-b: 1")
+  (prn "Called func-b: 1")
   (read))
-
-(defn func-b3
-  "This function calls a function from another namespace but same deps.edn"
-  []
-  (info "Called func-b: 1")
-  (repro3/read))
 
 (comment
   (func-b2))
-
-(comment
-  (func-b3))
 
 (comment
   (func-b))
