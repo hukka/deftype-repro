@@ -30,8 +30,8 @@ Paste to `clj` prompt
 (repro/func-b)
 ```
 
-Reproduce with just clj
------------------------
+Does not reproduce with just clj
+--------------------------------
 ```
 (ns repro2)
 
@@ -51,7 +51,7 @@ Reproduce with just clj
 
 (func-b)
 
-(ns repro2)
+(in-ns 'repro2)
 
 (defn read []
    (prn "Called repro2/read 2"))
@@ -59,7 +59,7 @@ Reproduce with just clj
 (defn read2 []
    (prn "Called repro2/read2 2"))
 
-(ns repro)
+(in-ns 'repro)
 
 (func-b)
 
