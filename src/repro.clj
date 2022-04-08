@@ -12,15 +12,6 @@
   (prn "Called func-b: 1")
   (repro2/read))
 
-(defn func-b2
- "This function calls a function in the same namespace and does not bug."
-  []
-  (prn "Called func-b: 1")
-  (read))
-
-(comment
-  (func-b2))
-
 (comment
   (func-b))
 
@@ -37,9 +28,24 @@
   To work around, try:
   0) Launch a new, clean REPL
   1) evaluate this buffer
-  2) evaluate `func-b` again
-  3) try changing repro2/read, evaluate it, evaluate the funtion call and observe that new version of `repro2/read` is actually called
+  2) evaluate `(defn func-b)` again
+  3) try changing repro2/read, evaluate the definition, and observe that new version of `repro2/read` is actually called when evaluation `(func-b)`
 
   Also note that this behaviour is identical if the function `repro2/read` is named like any other function in core.
   If it is named anything else, like read2, the problem cannot be reproduced.
   ")
+
+(defn func-b2
+ "This function calls a function in the same namespace and does not bug."
+  []
+  (prn "Called func-b: 1")
+  (read))
+
+(comment
+  "Does not bug"
+  (func-b2))
+
+(comment
+  "Also does not bug"
+  (repro2/read))
+
